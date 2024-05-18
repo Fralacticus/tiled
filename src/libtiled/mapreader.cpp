@@ -329,9 +329,9 @@ std::unique_ptr<Map> MapReaderPrivate::readMap()
                     // Invert Y-axis if set
                     //if (mMap->invertYAxis())
                     //    object->setY(mMap->height() * mMap->tileHeight() - object->y());
-					if (mMap->invertYAxis())
+					if (mMap->invertYAxis()){
                         object->setY(object()->y() - ((mMap->height() * mMap->tileHeight()) / 2) + (object->height() / 2));
-
+					}
                 }
             }
         }
