@@ -63,7 +63,9 @@ inline qreal InvertYAxisHelper::pixelY(qreal y) const
         const MapRenderer *renderer = mMapDocument->renderer();
         QRect boundingRect = renderer->boundingRect(QRect(QPoint(), mMapDocument->map()->size()));
         //return boundingRect.height() - y;
-		return y - (mMapDocument->map()->height() / 2);// + boundingRect.height()/2;
+		
+		//return y - (mMapDocument->map()->height() / 2) + boundingRect.height()/2;
+		return y - boundingRect.height()/2;
     }
     return y;
 }
