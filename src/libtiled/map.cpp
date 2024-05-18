@@ -84,10 +84,12 @@ void Map::setInvertYAxis(bool invertYAxis)
             if (!object->isTileObject()) {
                 //object->setY(object->y() + object->height() * (invertYAxis ? 1 : -1));
 				if(invertYAxis){
-					object->setY(object->y() - ((mParameters.height * mParameters.tileHeight) / 2) + (object->height() / 2));
+					//object->setY(object->y() - ((mParameters.height * mParameters.tileHeight) / 2) + (object->height() / 2));
+					object->setY(object->y() + (object->height() / 2));
 				}
 				else{
-					object->setY(object->y() + ((mParameters.height * mParameters.tileHeight) / 2) - (object->height() / 2));
+					//object->setY(object->y() + ((mParameters.height * mParameters.tileHeight) / 2) - (object->height() / 2));
+					object->setY(object->y() - (object->height() / 2));
 				}
 			}
         }

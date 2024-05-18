@@ -748,7 +748,7 @@ void MapWriterPrivate::writeObject(QXmlStreamWriter &w,
         if (mapObject.map()->invertYAxis()){
             //y = mapObject.map()->height() * mapObject.map()->tileHeight() - y;
 			const QSizeF size = mapObject.size();
-			y = y - ( (mapObject.map()->height() * mapObject.map()->tileHeight()) / 2) + (size.height() / 2) ;
+			y = y - ( (mapObject.map()->height() * mapObject.map()->tileHeight()) / 2); // + (size.height() / 2) ;
 		}			
 
         w.writeAttribute(QStringLiteral("y"), QString::number(y));
