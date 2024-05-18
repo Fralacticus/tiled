@@ -48,7 +48,8 @@ inline int InvertYAxisHelper::tileY(int y) const
 {
     // Check if Invert Y Axis is set
     if (mMapDocument->map()->invertYAxis())
-        return mMapDocument->map()->height() - 1 - y;
+        //return mMapDocument->map()->height() - 1 - y;
+		return y - (mMapDocument->map()->height() / 2);
     return y;
 }
 
@@ -61,7 +62,8 @@ inline qreal InvertYAxisHelper::pixelY(qreal y) const
     if (mMapDocument->map()->invertYAxis()) {
         const MapRenderer *renderer = mMapDocument->renderer();
         QRect boundingRect = renderer->boundingRect(QRect(QPoint(), mMapDocument->map()->size()));
-        return boundingRect.height() - y;
+        //return boundingRect.height() - y;
+		return y - (mMapDocument->map()->height() / 2) + boundingRect.height()/2;
     }
     return y;
 }
