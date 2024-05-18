@@ -81,8 +81,15 @@ void Map::setInvertYAxis(bool invertYAxis)
         for (auto it = og->begin(); it != og->end(); ++it) {
             auto object = *it;
             // Tile objects are anchored in the lower-left already, so don't height-adjust
-            if (!object->isTileObject())
-                object->setY(object->y() + object->height() * (invertYAxis ? 1 : -1));
+            if (!object->isTileObject()) {
+                //object->setY(object->y() + object->height() * (invertYAxis ? 1 : -1));
+				if(invertYAxis){
+					object->setY(object->y() - (height * tileHeight) / 2) + (object->height() / 2));
+				}
+				else{
+					object->setY(object->y() + (height * tileHeight) / 2) - (object->height() / 2));
+				}
+			}
         }
     }
 }
