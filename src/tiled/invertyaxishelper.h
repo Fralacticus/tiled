@@ -47,9 +47,10 @@ private:
 inline int InvertYAxisHelper::tileY(int y) const
 {
     // Check if Invert Y Axis is set
-    if (mMapDocument->map()->invertYAxis())
+    if (mMapDocument->map()->invertYAxis()){
         //return mMapDocument->map()->height() - 1 - y;
 		return y - (mMapDocument->map()->height() / 2);
+	}
     return y;
 }
 
